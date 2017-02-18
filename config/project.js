@@ -2,7 +2,7 @@
 
 const path = require('path'),
       utils = require('steamer-webpack-utils'),
-      __basename = path.dirname(__dirname),
+      __cwd = process.cwd(),
       __env = process.env.NODE_ENV,
       steamerConfig = require('./steamer.config');
 
@@ -15,10 +15,10 @@ var config = {
     env: __env,
     webpack: {
         path: {
-            src: path.resolve(__basename, "src"),
-            dev: path.resolve(__basename, "dev"),
-            dist: path.resolve(__basename, "dist"),
-            sprite: path.resolve(__basename, "src/img/sprites"),
+            src: path.join(__cwd, "src"),
+            dev: path.join(__cwd, "dev"),
+            dist: path.join(__cwd, "dist"),
+            sprite: path.join(__cwd, "src/img/sprites"),
         },
         hash: "[hash:6]",
         chunkhash: "[chunkhash:6]",

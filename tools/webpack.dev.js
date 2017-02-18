@@ -26,11 +26,6 @@ var devConfig = {
     },
     module: {
         loaders: [
-            // { 
-            //     test: /\.js$/,
-            //     loaders: ['react-hot'],
-            //     exclude: /node_modules/,
-            // },
             { 
                 test: /\.jsx$/,
                 loader: 'happypack/loader?id=jsxHappy',
@@ -61,12 +56,6 @@ var devConfig = {
                 // },
                 exclude: /node_modules/,
             },
-            // {
-            //     test: /\.css$/,
-            //     // 单独抽出样式文件
-            //     loader: ExtractTextPlugin.extract("style-loader", "css-loader"),
-            //     include: path.resolve(configWebpack.path.src)
-            // },
             {
                 test: /\.less$/,
                 loader: "happypack/loader?id=lessHappy",         
