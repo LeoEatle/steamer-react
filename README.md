@@ -1,5 +1,6 @@
 # steamer-react
-efficient react starter kit
+
+react 高效开发脚手架
 
 
 ## 使用
