@@ -1,7 +1,7 @@
 {
   "name": "steamer-react",
   "version": "1.8.5",
-  "description": "react-redux-webpack-boilerplate",
+  "description": "react redux webpack boilerplate or starter kit",
   "main": "./.steamer/steamer-react.js",
   "scripts": {
     "start": "node ./tools/start.js",
