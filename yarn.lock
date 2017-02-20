@@ -5728,9 +5728,9 @@ steamer-responsive@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/steamer-responsive/-/steamer-responsive-0.2.0.tgz#31afc12a7361b887754277fba866380b0c8c47ac"
 
-steamer-webpack-utils@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/steamer-webpack-utils/-/steamer-webpack-utils-0.1.4.tgz#dd86e9a6340c4261eb63b6a76715eeaf4c29ce4e"
+steamer-webpack-utils@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/steamer-webpack-utils/-/steamer-webpack-utils-0.1.5.tgz#a955078ab1798de19f6d4e1b11e3e73a4b6e09fe"
 
 stream-browserify@^2.0.1:
   version "2.0.1"

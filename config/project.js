@@ -20,6 +20,7 @@ var config = {
             dist: path.join(__cwd, "dist"),
             sprite: path.join(__cwd, "src/img/sprites"),
         },
+        selectedEntry: [], // 开发，启动的时候，可以只编译selectedEntry里的入口文件，如js/index
         hash: "[hash:6]",
         chunkhash: "[chunkhash:6]",
         imghash: "",
