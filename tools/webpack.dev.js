@@ -17,7 +17,7 @@ var HtmlResWebpackPlugin = require('html-res-webpack-plugin'),
     Autoprefixer = require('autoprefixer');
 
 var devConfig = {
-    entry: configWebpack.entry,
+    entry: utils.filterJsFile(configWebpack.entry),
     output: {
         publicPath: config.webserver,
         path: path.join(configWebpack.path.dev),

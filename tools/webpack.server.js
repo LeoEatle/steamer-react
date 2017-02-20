@@ -51,12 +51,9 @@ app.use(function(req, res, next) {
 		webpackConfig.entry[key] = config.webpack.entry[key];
 		delete config.webpack.entry[key];
 
-		compiler.plugin('done', () => {
+		devMiddleWare.waitUntilValid(() => {
 			console.log('webpack-dev-seveer invalidate done!');
-			setTimeout(() => {
-				next();
-			}, 300);
-			
+			next();
 		});
 
 	}
