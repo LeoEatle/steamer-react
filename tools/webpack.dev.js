@@ -114,7 +114,7 @@ var devConfig = {
     },
     plugins: [
         // remove previous dev folder
-        new Clean(['dev'], {root: path.resolve()}),
+        new Clean([configWebpack.path.dev], {root: process.cwd()}),
         new CopyWebpackPlugin([
             {
                 from: 'src/libs/',

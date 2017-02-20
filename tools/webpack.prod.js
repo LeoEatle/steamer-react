@@ -149,7 +149,7 @@ var prodConfig = {
     },
     plugins: [
         // remove previous dist folder
-        new Clean(['dist'], {root: path.resolve()}),
+        new Clean([configWebpack.path.dist], {root: process.cwd()}),
         // inject process.env.NODE_ENV so that it will recognize if (process.env.NODE_ENV === "__PROD__")
         new webpack.DefinePlugin({
             "process.env": {
