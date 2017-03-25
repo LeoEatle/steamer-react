@@ -2,10 +2,12 @@
 
 const path = require('path'),
       utils = require('steamer-webpack-utils'),
-      webpack = require('webpack');
+      webpack = require('webpack'),
+      merge = require('webpack-merge');
 
 var config = require('../config/project'),
-    configWebpack = config.webpack;
+    configWebpack = config.webpack,
+    customConfig = require('../config/webpack.custom');
 
 var HtmlResWebpackPlugin = require('html-res-webpack-plugin'),
     Clean = require('clean-webpack-plugin'),
@@ -16,16 +18,18 @@ var HtmlResWebpackPlugin = require('html-res-webpack-plugin'),
     PostcssImport = require('postcss-import'),
     Autoprefixer = require('autoprefixer');
 
+const _DEV_ = '_DEV_';
+
 var devConfig = {
     entry: utils.filterJsFile(configWebpack.entry, configWebpack.selectedEntry),
-    output: {
+    output: merge({
         publicPath: config.webserver,
         path: path.join(configWebpack.path.dev),
         filename: "[name].js",
         chunkFilename: "chunk/[name].js",
-    },
+    }, customConfig.getOutput(_DEV_)),
     module: {
-        loaders: [
+        loaders: merge.smart([
             { 
                 test: /\.jsx$/,
                 loader: 'happypack/loader?id=jsxHappy',
@@ -78,7 +82,7 @@ var devConfig = {
                 loader: "url-loader?name=[name].[ext]",
                 include: path.resolve(configWebpack.path.src)
             },
-        ],
+        ], customConfig.getLoaders(_DEV_)),
         noParse: [
             
         ]
@@ -89,7 +93,7 @@ var devConfig = {
             Autoprefixer() 
         ]
     },
-    resolve: {
+    resolve: merget.smart({
         root: [
             path.resolve(configWebpack.path.src)
         ],
@@ -109,9 +113,9 @@ var devConfig = {
             'touch-p': path.join(configWebpack.path.src, '/page/common/components/touch/index-p.js'),
             'scroll': 'react-list-scroll/lib/',
             'scroll-p': path.join(configWebpack.path.src, '/page/common/components/scroll/index-p.js'),
-            'pure-render-decorator': 'pure-render-deepCompare-decorator/lib/',
+            'pure-render-decorator': 'pure-render-deepCompare-decorator/dist/',
         }
-    },
+    }, customConfig.getResolve(_DEV_)),
     plugins: [
         // remove previous dev folder
         new Clean([configWebpack.path.dev], {root: process.cwd()}),
